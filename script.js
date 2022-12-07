@@ -1,6 +1,4 @@
 
-
-
 function getComputerChoice() {
     
     let random = Math.random() * 3;
@@ -66,7 +64,7 @@ function game(){
     
     for (let i = 1; i < 6; i++){
         
-        playerChoice = prompt("Choose Rock, Paper or Scissors:");
+        
 
         let result = playRound(playerChoice);
 
@@ -98,3 +96,8 @@ function winner(playerPoints, computerPoints){
         console.log(`Computer WON!!! Player Points: ${playerPoints} Computer Points: ${computerPoints}`)
     }
 }
+
+
+document.getElementById("rock").addEventListener("click", () => {return playerChoice = rock});
+document.getElementById("paper").addEventListener("click", () => {return playerChoice = paper});
+document.getElementById("scissors").addEventListener("click", () => {return playerChoice = scissors});

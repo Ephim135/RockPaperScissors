@@ -1,0 +1,27 @@
+h1 {
+    display: flex;
+    font-size: 120px;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    border: none;
+}
+
+.container > * {
+    margin:20px;
+}
+
+#rock {
+    width: 400px;
+}
+
+#paper {
+    width: 400px;
+}
+
+#scissors {
+    width: 400px;
+}
