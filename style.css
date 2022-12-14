@@ -1,4 +1,4 @@
-h1 {
+h3 {
     display: flex;
     font-size: 120px;
     justify-content: center;
@@ -14,14 +14,17 @@ h1 {
     margin:20px;
 }
 
-#rock {
-    width: 400px;
+#score, #round, #winner {
+    font-size: 70px;
 }
 
-#paper {
-    width: 400px;
+
+#paper, #rock, #scissors{
+    width: 300px;
 }
 
-#scissors {
-    width: 400px;
+
+#score, #winner, #round {
+    display: flex;
+    justify-content: center;
 }

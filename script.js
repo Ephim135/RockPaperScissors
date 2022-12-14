@@ -1,3 +1,7 @@
+let playerChoice = "";
+let playerPoints = 0;
+let computerPoints = 0;
+
 
 function getComputerChoice() {
     
@@ -17,7 +21,7 @@ function getComputerChoice() {
     
 }
     /* Rock -> Scissors -> Paper -> Rock */
-    let playerChoice = "";
+  
 
     
 
@@ -25,13 +29,11 @@ function playRound(playerChoice){
 
     let computerChoice = getComputerChoice();
     console.log(computerChoice);
-
-    let playerChoiceUpper = playerChoice.toUpperCase();
     
-    if (playerChoiceUpper == computerChoice) {
+    if (playerChoice == computerChoice) {
         return "Draw";
     }
-    else if (playerChoiceUpper == "ROCK"){
+    else if (playerChoice == "ROCK"){
         if (computerChoice == "SCISSORS"){
             return "Player Won!";
         }
@@ -39,7 +41,7 @@ function playRound(playerChoice){
             return "Computer Won!";
         }
     }
-    else if (playerChoiceUpper == "SCISSORS"){
+    else if (playerChoice == "SCISSORS"){
         if (computerChoice == "ROCK"){
             return "Computer Won!";
         }
@@ -58,46 +60,40 @@ function playRound(playerChoice){
 
 }
 
-function game(){
-    let playerPoints = 0;
-    let computerPoints = 0;
+
+
+window.addEventListener("click", function(e){
     
-    for (let i = 1; i < 6; i++){
-        
-        
+    console.log(e);
 
-        let result = playRound(playerChoice);
-
-        console.log(result);
-
-        if (result == "Player Won!"){
-            playerPoints++;
-        }
-        else if (result == "Computer Won!"){
-            computerPoints++;
-        }
-        
-        console.log(`Player Points: ${playerPoints} Computer Points: ${computerPoints} Rounds Played: ${i}`)
-    }
+    let currentRound = playRound(e.srcElement.alt);
     
-    winner(playerPoints,computerPoints);
+    console.log(currentRound);
 
-}
+    if (currentRound == "Computer Won!"){
+        computerPoints++;
 
-
-function winner(playerPoints, computerPoints){
-    if (playerPoints == computerPoints){
-        console.log(`Draw Player Points: ${playerPoints} Computer Points: ${computerPoints}`);
+        if (computerPoints == 5){
+            document.getElementById("winner").innerText = "Computer Won this round!!!";
+            computerPoints = 0;
+            playerPoints = 0;
+        }
     }
-    else if ( playerPoints > computerPoints){
-        console.log(`Player WON!!! Player Points: ${playerPoints} Computer Points: ${computerPoints}`);
+    else if (currentRound == "Player Won!"){
+        playerPoints++;
+
+        if (playerPoints == 5){
+            document.getElementById("winner").innerText = "Player Won this round!!!";
+            computerPoints = 0;
+            playerPoints = 0;
+        }
     }
-    else {
-        console.log(`Computer WON!!! Player Points: ${playerPoints} Computer Points: ${computerPoints}`)
-    }
-}
+
+    document.getElementById("score").innerText = `Player Score: ${playerPoints} Computer Score: ${computerPoints}`
+    document.getElementById("round").innerText = `${currentRound}`
+});
 
 
-document.getElementById("rock").addEventListener("click", () => {return playerChoice = rock});
-document.getElementById("paper").addEventListener("click", () => {return playerChoice = paper});
-document.getElementById("scissors").addEventListener("click", () => {return playerChoice = scissors});
+// document.getElementById("rock").addEventListener("click", () => {console.log("rock")});
+// document.getElementById("paper").addEventListener("click", () => {return playerChoice = paper});
+// document.getElementById("scissors").addEventListener("click", () => {return playerChoice = scissors});

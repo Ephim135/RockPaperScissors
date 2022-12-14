@@ -10,20 +10,23 @@
 </head>
 <body>
     <header>
-        <h1>Rock Paper Scissors for The Odin Project</h1>
+        <h3>Rock Paper Scissors for The Odin Project</h3>
     </header>
     <main>
         <div class="container">
-            <button class="rock buttons">
-                <img id="rock" src="./images/rock.png" alt="rock">
+            <button data-key="rock" class="rock buttons">
+                <img id="rock" src="./images/rock.png" alt="ROCK">
             </button>
-            <button class="paper buttons">
-                <img id="paper" src="./images/paper.png" alt="paper">
+            <button data-key="paper" class="paper buttons">
+                <img id="paper" src="./images/paper.png" alt="PAPER">
             </button>
-            <button class="scissors buttons">
-                <img id="scissors" src="./images/scissors.png" alt="scissor">
+            <button data-key="scissors" class="scissors buttons">
+                <img id="scissors" src="./images/scissors.png" alt="SCISSORS">
             </button>
         </div>
+        <div id="round"></div>
+        <div id="score"></div>
+        <div id="winner"></div>
     </main>
     <footer>
 
